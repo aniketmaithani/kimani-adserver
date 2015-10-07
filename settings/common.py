@@ -43,6 +43,7 @@ INSTALLED_APPS = (
 
     'Adserver.base',
     'Adserver.pages',
+    'Adserver.Brands',
 
     'django_extensions',  # http://django-extensions.readthedocs.org/
     'rest_framework',  # http://www.django-rest-framework.org/
