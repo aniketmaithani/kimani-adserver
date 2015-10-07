@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^', include("Adserver.pages.urls", namespace="pages")),
 
     # Your stuff: custom urls go here
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -50,10 +50,14 @@ INSTALLED_APPS = (
     'django_extensions',  # http://django-extensions.readthedocs.org/
     'rest_framework',  # http://www.django-rest-framework.org/
     'versatileimagefield',  # https://github.com/WGBH/django-versatileimagefield/
+    'registration',
 )
 
 # INSTALLED APPS CONFIGURATION
 # ==========================================================================
+ACCOUNT_ACTIVATION_DAYS = 7  # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = True  # Automatically log the user in.
+
 
 # django.contrib.auth
 # ------------------------------------------------------------------------------
