@@ -36,6 +36,7 @@ urlpatterns = [
 
     # Your stuff: custom urls go here
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^accounts/profile/$', 'Adserver.users.views.brand_view', name="profile"),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
