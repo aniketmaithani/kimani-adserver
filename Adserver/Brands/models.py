@@ -10,11 +10,13 @@ from versatileimagefield.fields import VersatileImageField
 
 # kimani-adserver Stuff
 from Adserver.base.models import TimeStampedUUIDModel
+from Adserver.Coupon.models import Coupon
 
 
 @python_2_unicode_compatible
 class Brand(TimeStampedUUIDModel):
     user = models.ForeignKey(CustomUser)
+    coupon_uploaded = models.ManyToManyField(Coupon, related_name='_coupon_uploaded')
     name_of_the_brand = models.CharField(blank=False, null=False,
                                          max_length=60, help_text='Name of the brand')
     email = models.EmailField(blank=False, null=False,
@@ -24,7 +26,7 @@ class Brand(TimeStampedUUIDModel):
     address = models.TextField(blank=True, null=False, verbose_name='Address of the brand')
 
     def __str__(self):
-        return self.name
+        return self.name_of_the_brand
 
     class Meta:
         verbose_name = "brand"
