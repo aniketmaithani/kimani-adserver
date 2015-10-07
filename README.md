@@ -4,7 +4,7 @@ Adserver Made on the lines of `kiip.com`
 Kimani Adserver | Beta
 ==============================
 
-__Version:__ 0.0.0
+__Version:__ 0.1.0-dev
 
 Adserver based on the lines of kiip.com
 
