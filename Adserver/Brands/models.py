@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 # Third Party Stuff
 from django.db import models
-from django.contrib.auth.models import User
+from Adserver.users.models import CustomUser
 from django.utils.encoding import python_2_unicode_compatible
 from uuid_upload_path import upload_to
 from versatileimagefield.fields import VersatileImageField
@@ -14,7 +14,7 @@ from Adserver.base.models import TimeStampedUUIDModel
 
 @python_2_unicode_compatible
 class Brand(TimeStampedUUIDModel):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(CustomUser)
     name_of_the_brand = models.CharField(blank=False, null=False,
                                          max_length=60, help_text='Name of the brand')
     email = models.EmailField(blank=False, null=False,

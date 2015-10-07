@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'Adserver.base',
     'Adserver.pages',
     'Adserver.Brands',
+    'Adserver.users',
 
     'django_extensions',  # http://django-extensions.readthedocs.org/
     'rest_framework',  # http://www.django-rest-framework.org/
@@ -55,7 +56,7 @@ INSTALLED_APPS = (
 
 # django.contrib.auth
 # ------------------------------------------------------------------------------
-# AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.CustomUser'
 AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 
 # rest_framework
