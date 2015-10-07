@@ -1,0 +1,39 @@
+language: python
+sudo: false
+python:
+- '2.7'
+addons:
+  postgresql: "9.3"
+
+before_script:
+- flake8
+- export DATABASE_URL=postgres://postgres@localhost/Adserver
+- export DJANGO_SECRET=`openssl rand -base64 32`
+- psql -c "CREATE DATABASE Adserver;" -U postgres
+
+install:
+  - pip install -r requirements/development.txt
+
+script:
+- coverage run --source=Adserver --omit='*tests*,*commands*,*migrations*,*admin*,*config*,*wsgi*' -m py.test -v --tb=native
+- coverage report
+
+notifications:
+  email:
+    on_success: change  # [always|never|change]
+    on_failure: always  # [always|never|change]
+deploy:
+  provider: heroku
+  buildpack: python
+  strategy: api
+  api_key:
+    # travis encrypt $(heroku auth:token) --add deploy.api_key
+    secure: <add_heroku_auth_token_here>
+  app:
+    master: Adserver-dev
+    qa: Adserver-qa
+    prod: Adserver-prod
+  on:
+    repo: aniketmaithani/kimani-adserver
+  run:
+    - "python manage.py migrate"

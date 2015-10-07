@@ -1,0 +1,18 @@
+---
+- name: get the latest code
+  git: repo={{ project_repo_url }} dest={{ project_path }} version={{ repo_version }} accept_hostkey=true
+  sudo: false
+
+- name: install django python dependencies
+  pip: requirements={{ project_path }}/{{ django_requirements_file }}
+  sudo: true
+
+- name: migrate database
+  django_manage: command=migrate app_path={{ project_path }}
+  sudo: false
+
+- name: collect static
+  django_manage: command=collectstatic app_path={{ project_path }}
+  sudo: false
+
+
