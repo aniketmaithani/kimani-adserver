@@ -2,22 +2,20 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Brands', '0002_auto_20151007_1250'),
+        ('Coupon', '0001_initial'),
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='brand',
-            name='coupon_upload',
-        ),
         migrations.AddField(
             model_name='coupon',
-            name='owner',
-            field=models.ManyToManyField(to='Brands.Brand'),
+            name='created_by',
+            field=models.ForeignKey(to=settings.AUTH_USER_MODEL),
         ),
     ]

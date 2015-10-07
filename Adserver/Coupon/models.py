@@ -8,9 +8,11 @@ from versatileimagefield.fields import VersatileImageField
 
 # kimani-adserver Stuff
 from Adserver.base.models import TimeStampedUUIDModel
+from Adserver.users.models import CustomUser
 
 
 class Coupon(TimeStampedUUIDModel):
+    created_by = models.ForeignKey(CustomUser)
     coupon_name = models.CharField(blank=False, null=False,
                                    max_length=100, help_text='Name of the coupon. E.g FREE MASALA COFFEE')
     photo_of_the_coupon = VersatileImageField(blank=True, null=True, upload_to=upload_to)
