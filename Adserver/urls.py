@@ -14,6 +14,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 from .routers import router
+from Adserver.Coupon.views import CouponCreate
 
 handler500 = "Adserver.base.views.server_error"
 
@@ -36,6 +37,8 @@ urlpatterns = [
 
     # Your stuff: custom urls go here
     url(r'^accounts/', include('registration.backends.default.urls')),
+    # url(r'^accounts/profile/', "Adserver.users.views.profile", name="profile"),
+    url(r'^accounts/profile/', CouponCreate.as_view(), name='profile'),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
