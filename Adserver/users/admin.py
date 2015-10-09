@@ -1,9 +1,10 @@
+# Third Party Stuff
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import ugettext_lazy as _
 
-from .models import CustomUser
 from .forms import CustomUserChangeForm, CustomUserCreationForm
+from .models import CustomUser
 
 
 class CustomUserAdmin(UserAdmin):

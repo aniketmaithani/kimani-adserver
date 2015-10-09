@@ -6,6 +6,7 @@ from django.db import models
 from uuid_upload_path import upload_to
 from versatileimagefield.fields import VersatileImageField
 
+# Kimani Adserver | Beta Stuff
 # kimani-adserver Stuff
 from Adserver.base.models import TimeStampedUUIDModel
 from Adserver.users.models import CustomUser

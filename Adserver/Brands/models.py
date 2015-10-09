@@ -3,14 +3,15 @@ from __future__ import unicode_literals
 
 # Third Party Stuff
 from django.db import models
-from Adserver.users.models import CustomUser
 from django.utils.encoding import python_2_unicode_compatible
 from uuid_upload_path import upload_to
 from versatileimagefield.fields import VersatileImageField
 
+# Kimani Adserver | Beta Stuff
 # kimani-adserver Stuff
 from Adserver.base.models import TimeStampedUUIDModel
 from Adserver.Coupon.models import Coupon
+from Adserver.users.models import CustomUser
 
 
 @python_2_unicode_compatible
