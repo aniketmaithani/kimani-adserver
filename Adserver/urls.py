@@ -39,7 +39,6 @@ urlpatterns = [
 
     # Your stuff: custom urls go here
     url(r'^accounts/', include('registration.backends.default.urls')),
-    # url(r'^accounts/profile/', "Adserver.users.views.profile", name="profile"),
     url(r'^accounts/profile/', CouponCreate.as_view(), name='profile'),
 
 

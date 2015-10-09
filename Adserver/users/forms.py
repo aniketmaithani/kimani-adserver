@@ -13,7 +13,6 @@ class CustomUserCreationForm(UserCreationForm):
 
     def __init__(self, *args, **kargs):
         super(CustomUserCreationForm, self).__init__(*args, **kargs)
-#        del self.fields['email']
 
     class Meta:
         model = CustomUser
@@ -29,7 +28,6 @@ class CustomUserChangeForm(UserChangeForm):
 
     def __init__(self, *args, **kargs):
         super(CustomUserChangeForm, self).__init__(*args, **kargs)
-#       del self.fields['email']
 
     class Meta:
         model = CustomUser
